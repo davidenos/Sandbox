@@ -1,4 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-	<h1>Here's Your Template</h1>	
+	<head>
+		<title>HTML Test :: Franchesca Marasco</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script language="JavaScript" type="text/javascript">
+			function makeFrame() {
+				ifrm = document.createElement("iframe");
+				ifrm.setAttribute('id', 'contentframe');
+				ifrm.style.width = 360+"px";
+				ifrm.style.height = 550+"px";
+				ifrm.scrolling="no";
+				document.body.appendChild(ifrm);
+				ifrm.setAttribute("src", "frame.html");
+				ifrm.onload = function() {
+					var x = document.getElementById("contentframe");
+					x.contentWindow.document.body.style.backgroundColor = "#F8F6EA";
+					x.contentWindow.document.body.style.boxShadow = "inset 0 0 7px #7c7966, inset 0 0 3px #d6d4c8";
+				};
+			};
+		</script> 
+	</head>
+	<body onload="makeFrame()"></body>
 </html>
