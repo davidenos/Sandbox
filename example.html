@@ -1,4 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-	<h1>Here's Your Template</h1>	
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Create A New Message</title>
+	
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600' rel='stylesheet' type='text/css'>
+    <!-- Custom styles -->
+    <link href="css/foundation.css" rel="stylesheet" type="text/css">
+    <link href="css/ocpstyles.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript" language="Javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.6.2/jquery-ui.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('a.login-window').click(function() {
+	
+			var loginBox = $(this).attr('href');
+
+			$(loginBox).fadeIn(300);
+		
+			var popMargTop = ($(loginBox).height() + 24) / 2; 
+			var popMargLeft = ($(loginBox).width() + 24) / 2; 
+		
+			$(loginBox).css({ 
+				'margin-top' : -popMargTop,
+				'margin-left' : -popMargLeft
+			});
+			
+			// Add the mask to body
+			$('body').append('<div id="mask"></div>');
+			$('#mask').fadeIn(300);
+		
+			return false;
+		});
+	
+		$('a.close, #mask').live('click', function() { 
+		  $('#mask , .login-popup').fadeOut(300 , function() {
+			$('#mask').remove();  
+		}); 
+		return false;
+		});
+		
+		var submitButton = $('.sign');
+		var alertBox = $('.alert-box');
+		var closeButton = $('.close');
+		
+		$(submitButton).click(function() {
+			$(alertBox).fadeIn(500);
+		});
+		$(closeButton).click(function() {
+    		$(alertBox).fadeOut(500);
+    	});
+	});
+	</script>
+	
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+	<div id="wrapper">
+		<form height="520" action="#" autocomplete="on" onsubmit="return confirm('Do you really want to submit the form?');"> 
+        	<h1>Create A New Message</h1> 
+            <p>This is a Test message</p>
+            <textarea class="message">Here is some scrollable text.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae felis et nibh egestas pellentesque. Integer cursus tellus at magna placerat hendrerit. Praesent vestibulum sollicitudin sapien nec pretium. Nunc nunc risus, accumsan non mollis vitae, commodo eu turpis. Nulla gravida quam eu nunc sodales imperdiet. Sed rutrum quam arcu, tincidunt pellentesque neque congue sed. Sed eget iaculis nibh. Aliquam vel ligula faucibus, vehicula elit et, pulvinar urna. Mauris mi enim, sollicitudin at diam quis, tincidunt aliquet arcu. Nunc augue diam, egestas quis eleifend aliquam, fringilla eget lorem. Maecenas ultrices urna ac leo porttitor, id mattis velit varius. Aliquam pharetra, est ut ornare pharetra, massa felis iaculis diam, nec scelerisque tellus risus vel nisi. Proin vitae commodo arcu. Aenean viverra, elit elementum congue pellentesque, arcu odio vulputate elit, at auctor nulla nisi tincidunt tellus. Maecenas imperdiet lobortis odio vel placerat. Aliquam blandit luctus mauris, in commodo odio mollis non.</textarea>
+            <div class="block">
+            <a href="#login-box" class="login-window">
+				<div class="btn-fb-login">
+    				<span class="icon icon-fb"></span>
+    				<span class="title">Sign with Facebook</span>
+  				</div>
+  			</a>
+			</div>
+			<div style="clear:both;"></div>
+            <p class="name-area"> 
+                <label for="namesign" class="name" data-icon="u">Name</label>
+                <input id="namesign" name="usernamesignup" required="required" type="text" placeholder="Name..." />
+            </p>
+            <p class="email-area"> 
+                <label for="emailsign" class="youmail" data-icon="e" >Email</label>
+                <input id="emailsign" name="emailsign" required="required" type="email" placeholder="me@example.com"/> 
+            </p>
+            <div style="clear:both;"></div>
+            <a href="http://oneclickpolitics.com/"><img style="position:absolute;left:15;bottom:15;" src="img/ocp.png" alt="One Click Politics" /></a>
+            <p class="sign button"> 
+				<input type="submit" value="Submit"/> 
+			</p>
+			<div class="alert-box success" style="display: none;" data-alert="">Message Sent
+ 				<a class="close" href="#">×</a></div>
+		</form>
+	</div>
+	<div id="login-box" class="login-popup">
+        <a href="#" class="close"><img src="img/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
+          <div class="fb-login">
+   				<div class="title">Sign with Facebook</div>
+    				<div class="login-form">
+      				<form method="post">
+        				<input type="text" placeholder="E-mail" />
+        				<input type="password" placeholder="Password" />
+        				<button type="submit" class="btn btn-login">Sign</button>
+      				</form>
+    				</div>
+  				</div>
+		</div>
+</body>
 </html>
